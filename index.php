@@ -28,6 +28,10 @@ if (file_exists('todo.json')) {
         <div style="margin-bottom: 20px">
             <input type="checkbox" <?php echo $todo['completed'] ? 'cheched' : '' ?>>
             <?php echo $todoName ?>
+            <form style="display: inline-block" action="delete.php" method="post">
+                <input type="hidden" name="todo_name" value="<?php echo $todoName ?>">
+                <button>Delete</button>
+            </form>
         </div>
     <?php endforeach ?>
 
