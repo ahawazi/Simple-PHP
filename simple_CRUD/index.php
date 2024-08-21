@@ -1,3 +1,10 @@
+<?php
+
+require 'users.php';
+$users = getUsers();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +13,6 @@
     <title>simple php crund</title>
 </head>
 <body>
-    
+
 </body>
 </html>
