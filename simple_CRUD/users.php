@@ -7,7 +7,13 @@ function getUsers()
 
 function getUserById($id)
 {
-
+    $users = getUsers();
+    foreach ($users as $user) {
+        if ($id == $user['id']) {
+            return $user;
+        }
+    }
+    return null;
 }
 
 function createUser($data)
