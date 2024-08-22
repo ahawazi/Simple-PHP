@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <form method="post" enctype="multipart/form-data" action="#">
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="name" value="<?php echo $user['name'] ?>" class="form-control">
+                    <input name="name" value="<?php echo $user['name'] ?>" class="form-control">
                 </div>
 
                 <div class="form-group">
