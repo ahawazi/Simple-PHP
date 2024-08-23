@@ -7,9 +7,13 @@ include 'partials/header.php';
 ?>
 
 <div class="container">
+    <p>
+        <a class="btn btn-success" href="create.php">Create new user</a>
+    </p>
     <table class="table">
         <thead>
         <tr>
+            <th>Image</th>
             <th>Name</th>
             <th>UserName</th>
             <th>Email</th>
@@ -22,6 +26,11 @@ include 'partials/header.php';
         <tbody>
         <?php foreach ($users as $user): ?>
             <tr>
+                <td>
+                    <?php if (isset($user['extension'])): ?>
+                        <img style="width: 60px" src="<?php echo "users/images/${user['id']}.${user['extension']}" ?>" alt="<?php echo $user['name']?>">
+                    <?php endif; ?>
+                </td>
                 <td><?php echo $user['name'] ?></td>
                 <td><?php echo $user['username'] ?></td>
                 <td><?php echo $user['email'] ?></td>
