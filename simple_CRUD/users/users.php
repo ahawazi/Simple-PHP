@@ -18,24 +18,61 @@ function getUserById($id)
 
 function createUser($data)
 {
+    $users = getUsers();
 
+    $data['id'] = rand(1000000, 2000000);
+
+    $users[] = $data;
+
+    putJson($users);
+
+    return $data;
 }
 
 function updateUser($data, $id)
 {
+    $updateUser = [];
     $users = getUsers();
-    foreach ($users as $i => $user){
+    foreach ($users as $i => $user) {
         if ($user['id'] == $id) {
-            $users[$i] = array_merge($user, $data);
+            $users[$i] = $updateUser = array_merge($user, $data);
         }
     }
-    echo '<pre>';
-    var_dump($users);
-    echo '</pre>';
-    file_put_contents(__DIR__ . '/users.json', json_encode($users));
+
+    putJson($users);
+
+    return $updateUser;
 }
 
 function deleteUser($id)
 {
+    $users = getUsers();
+    foreach ($users as $i => $user) {
+        if ($user['id'] == $id) {
+            array_splice($users, $i, 1);
+        }
+    }
+    putJson($users);
+}
 
+function uploadImage($file, $user)
+{
+    if (isset($_FILES['picture']) && $_FILES['picture']['name']) {
+        if (!is_dir(__DIR__ . "/images")) {
+            mkdir(__DIR__ . "/images");
+        }
+        $fileName = $file['name'];
+        $dotposition = strpos($fileName, '.');
+        $extension = substr($fileName, $dotposition + 1);
+
+        move_uploaded_file($file['tmp_name'], __DIR__ . "/images/${user['id']}.$extension");
+
+        $user['$extension'] = $extension;
+        updateUser($user, $user['id']);
+    }
+}
+
+function putJson($users)
+{
+    file_put_contents(__DIR__ . '/users.json', json_encode($users), JSON_PRETTY_PRINT);
 }
