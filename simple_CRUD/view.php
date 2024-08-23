@@ -25,6 +25,10 @@ include 'partials/header.php'
                 View user: <b><?php echo $user['name']?></b>
             </h3>
         </div>
+        <div class="card-body">
+            <a class="btn btn-success" href="update.php?id=<?php echo $user['id']?>">Update</a>
+            <a class="btn btn-danger" href="delete.php?id=<?php echo $user['id']?>">Delete</a>
+        </div>
         <table class="table">
             <tbody>
             <tr>
