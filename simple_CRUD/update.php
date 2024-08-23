@@ -1,7 +1,7 @@
 <?php
 include 'partials\header.php';
 
-require  __DIR__ . '/users.php';
+require __DIR__ . '/users/users.php';
 
 if (!isset($_GET['id'])) {
     include 'partials\not_found.php';
@@ -18,6 +18,10 @@ if (!isset($user)) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     updateUser($_POST, $userId);
+
+    if (isset($_FILES['picture'])) {
+        move_uploaded_file($_FILES['picture']['tmp_name'], __DIR__ . "/images/$userId.jpg");
+    }
 
     header("Location: index.php");
 }
