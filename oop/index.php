@@ -4,7 +4,7 @@ class Person
 {
     public string $name;
     public int $age;
-    public float $salary;
+    public ?float $salary;
 
     public function __construct($name, $age, $salary)
     {
