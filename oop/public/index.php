@@ -1,24 +1,18 @@
 <?php
 
-class Person
-{
-    public string $name;
-    public int $age;
-    public ?float $salary;
-    public function __construct($name, $age, $salary)
-    {
-        $this->name = $name;
-        $this->age = $age;
-        $this->salary = $salary;
-    }
-}
+require_once './Person.php';
+require_once './student.php';
 
-$p = new Person('John Doe', '18', null);
+$s = new Student("zura", '20', 1234);
+echo $s->name . '<br>';
+echo $s->age . '<br>';
+echo $s->stId . '<br>';
 
-echo $p->name . '<br>';
-echo $p->age . '<br>';
-echo $p->salary . '<br>';
+//$p = new Person('John Doe', '18', null);
+//echo $p->name . '<br>';
+//echo $p->age . '<br>';
+//echo $p->salary . '<br>';
 
 echo '<pre>';
-var_dump($p);
+var_dump($s);
 echo '</pre>';
