@@ -15,9 +15,9 @@ class Person
 
 $p = new Person('John Doe', '18', null);
 
-echo $p->name;
-echo $p->age;
-echo $p->salary;
+echo $p->name . '<br>';
+echo $p->age . '<br>';
+echo $p->salary . '<br>';
 
 echo '<pre>';
 var_dump($p);

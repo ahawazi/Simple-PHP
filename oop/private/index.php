@@ -13,23 +13,23 @@ class Person
         $this->salary = $salary;
     }
 
-    public function getSalary():float
+    public function getSalary()
     {
-    return $this->salary;
+        return $this->salary;
     }
 
-    public function setSalary($salary):float
+    public function setSalary($salary)
     {
         $this->salary = $salary;
     }
 }
 
 $p = new Person('John Doe', 20, null);
-echo $p->name;
-echo $p->age;
-echo $p->getSalary();
-$p->setSalary(20);
-echo $p->getSalary();
+echo $p->name . '<br>';
+echo $p->age . '<br>';
+echo $p->getSalary() . '<br>';
+$p->setSalary(30) . '<br>';
+echo $p->getSalary() . '<br>';
 
 echo '<pre>';
 var_dump($p);
