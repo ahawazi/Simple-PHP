@@ -1,10 +1,15 @@
 <?php
 
+namespace public;
+
+use private\Person;
+
 require_once './Person.php';
 
 class Student extends Person
 {
     public int $stId;
+
     public function __construct($name, $age, $stId)
     {
         $this->stId = $stId;

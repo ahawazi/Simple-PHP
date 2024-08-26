@@ -1,5 +1,7 @@
 <?php
 
+use public\Student;
+
 require_once './Person.php';
 require_once './student.php';
 
