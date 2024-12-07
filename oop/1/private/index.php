@@ -25,7 +25,7 @@ class Person
     }
 }
 
-$p = new private\Person('John Doe', 20, null);
+$p = new Person('John Doe', 20, null);
 echo $p->name . '<br>';
 echo $p->age . '<br>';
 echo $p->getSalary() . '<br>';
